@@ -1,6 +1,6 @@
 # A bunny prefab
 defmodule Bunny do
-  def build do
-    ECS.Entity.build([TimeComponent])
+  def new do
+    ECS.Entity.build([TimeComponent.new(%{age: 0})])
   end
 end
