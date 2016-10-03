@@ -15,9 +15,6 @@ defmodule ECS.Component do
   defmacro __using__(_options) do
     quote do
       @behaviour ECS.Component # Require Components to implement interface
-
-      # Built-in utility functions
-      def type, do: IO.puts(__MODULE__)
     end
   end
 
@@ -25,10 +22,7 @@ defmodule ECS.Component do
   @spec new(component_type, state) :: t
   def new(component_type, initial_state) do
     {:ok, pid} = ECS.Component.Agent.start_link(initial_state)
-
-    # Register component for systems to reference
-    ECS.Registry.insert(component_type, pid)
-
+    ECS.Registry.insert(component_type, pid) # Register component for systems to reference
     %{
       id: pid,
       state: initial_state
@@ -39,7 +33,6 @@ defmodule ECS.Component do
   @spec get(id) :: t
   def get(pid) do
     state = ECS.Component.Agent.get(pid)
-
     %{
       id: pid,
       state: state
@@ -50,7 +43,6 @@ defmodule ECS.Component do
   @spec update(id, state) :: t
   def update(pid, new_state) do
     ECS.Component.Agent.set(pid, new_state)
-    
     %{
       id: pid,
       state: new_state
