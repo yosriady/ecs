@@ -1,4 +1,8 @@
 defmodule ECS.Component do
+  @moduledoc """
+    A base for creating new Components.
+  """
+
   defstruct [:id, :state]
 
   @type id :: pid()
