@@ -8,7 +8,7 @@ defmodule TimeComponent do
 
   @component_type __MODULE__
 
-  # Initializes and validates state
+  @doc "Initializes and validates state"
   def new(%{age: _age} = initial_state) do
     ECS.Component.new(@component_type, initial_state)
   end
