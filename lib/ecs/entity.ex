@@ -1,4 +1,8 @@
 defmodule ECS.Entity do
+  @moduledoc """
+    A base for creating new Entities.
+  """
+
   defstruct [:id, :components]
 
   @type id :: String.t
