@@ -1,6 +1,6 @@
 defmodule ECS.Registry do
   @moduledoc """
-    Component registry.
+    Component registry. Used by systems to locate components of its type.
 
     iex> {:ok, r} = ECS.Registry.start
     iex> ECS.Registry.insert("test", r)
