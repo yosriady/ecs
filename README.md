@@ -1,4 +1,4 @@
-# Entity Component Systems
+# Entity Component System
 
 ```elixir
 
