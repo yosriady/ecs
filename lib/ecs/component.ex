@@ -8,7 +8,6 @@ defmodule ECS.Component do
   @type id :: pid()
   @type component_type :: String.t
   @type state :: map()
-  @type params :: map()
   @type t :: %ECS.Component{
     id: id, # Component Agent ID
     state: state
