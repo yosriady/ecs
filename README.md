@@ -1,6 +1,6 @@
 # Entity Component Systems
 
-```
+```elixir
 
 ECS.Registry.start
 
