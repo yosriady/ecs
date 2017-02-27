@@ -3,12 +3,21 @@
 ```
 
 ECS.Registry.start
+
+# Create an entity with a given collection of components.
 bunny = ECS.Entity.build([TimeComponent.new(%{age: 0})])
+
+# Each game turn, we may trigger a system to process and push some state updates to our components.
 TimeSystem.process
-bunny = ECS.Entity.reload(bunny)
 TimeSystem.process
+
+# Because Elixir is immutable, we need to pull the latest state.
 bunny = ECS.Entity.reload(bunny)
+
+# New components can be added at runtime.
 bunny = ECS.Entity.add(bunny, TimeComponent.new(%{age: 10}))
+
+# State updates will also be pushed to components added at runtime.
 TimeSystem.process
 bunny = ECS.Entity.reload(bunny)
 
